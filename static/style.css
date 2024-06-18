@@ -1,0 +1,41 @@
+body {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+}
+
+h1 {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+}
+
+.form-control::placeholder {
+  color: #ddd;
+}
+
+.btn-primary {
+  background-color: #6a11cb;
+  border: none;
+}
+
+.btn-secondary {
+  background-color: #2575fc;
+  border: none;
+}
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+}
