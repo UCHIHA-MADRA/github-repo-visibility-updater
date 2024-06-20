@@ -1,12 +1,17 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template
 from github import Github
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        token = request.form['token']
+        token = os.getenv('GH_TOKEN')
         visibility = request.form['visibility']
         g = Github(token)
         user = g.get_user()
