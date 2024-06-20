@@ -1,41 +1,73 @@
+/* Body and General Styling */
 body {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 4rem;
 }
 
-h1 {
-  font-family: "Arial", sans-serif;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.navbar-text {
+  margin-right: 1rem;
+}
+
+/* Cards Styling for Repositories */
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #343a40;
+}
+
+.navbar-brand {
+  color: #ffffff;
   font-weight: bold;
 }
 
-.card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.navbar-brand:hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-.form-control {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
+.navbar .btn-primary {
+  margin-left: 1rem;
 }
 
-.form-control::placeholder {
-  color: #ddd;
-}
-
+/* Button Styling */
 .btn-primary {
-  background-color: #6a11cb;
-  border: none;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
-.btn-secondary {
-  background-color: #2575fc;
-  border: none;
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
-.list-group-item {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }

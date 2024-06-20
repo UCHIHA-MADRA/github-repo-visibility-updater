@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repo Visibility Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        // Function to handle GitHub login
+        function handleGitHubLogin() {
+            var newTab = window.open('{{ url_for('start_github_login') }}', '_blank');
+            var checkInterval = setInterval(function() {
+                if (newTab.closed) {
+                    clearInterval(checkInterval);
+                    // Redirect back to repo_visibility page
+                    window.location.href = "{{ url_for('repo_visibility') }}";
+                }
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">GitHub Repo Visibility Manager</a>
+        <div id="loginStatus">
+            {% if session.token %}
+                <span>Welcome, {{ github_username }}</span>
+                <a class="btn btn-danger ml-2" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <button class="btn btn-primary" onclick="handleGitHubLogin()">Login with GitHub</button>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Your Repositories</h1>
+        <div class="row">
+            {% for repo in repos %}
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ repo.name }}</h5>
+                            <p class="card-text">Visibility: {{ 'Private' if repo.private else 'Public' }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
